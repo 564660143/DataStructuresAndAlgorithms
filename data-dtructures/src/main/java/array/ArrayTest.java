@@ -3,11 +3,12 @@ package array;
 public class ArrayTest {
 
   public static void main(String[] args) {
-    Array<Integer> myArray = new Array<>(40);
+    Array<Integer> myArray = new Array<>();
     for (int i = 0; i < 10; i++) {
       myArray.addlast(i);
     }
     System.out.println(myArray);
+    myArray.removeLast();
     myArray.addFirst(-1);
     System.out.println(myArray);
     myArray.add(1, 100);
