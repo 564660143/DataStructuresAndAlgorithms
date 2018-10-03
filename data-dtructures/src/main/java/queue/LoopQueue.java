@@ -9,7 +9,7 @@ package queue;
  * 
  * 设计 : 只有front == tail时标识队列为空, 因此队列中有个元素空间被有意识的浪费了
  * tail % getCapacity = front -1 时标识队列已满
- * @author xuxiumeng
+ * @author 七夜雪
  *
  * @param <E>
  */

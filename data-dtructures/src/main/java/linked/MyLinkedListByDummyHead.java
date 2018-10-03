@@ -2,7 +2,7 @@ package linked ;
 
 /**
  * 使用虚拟头节点实现链表
- * @author Administrator
+ * @author 七夜雪
  *
  * @param <E>
  */
