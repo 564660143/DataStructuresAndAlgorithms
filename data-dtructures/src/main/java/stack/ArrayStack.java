@@ -3,7 +3,7 @@ package stack;
 import array.Array;
 /**
  * 基于动态数组实现的栈
- * @author xuxiumeng
+ * @author 七夜雪
  *
  * @param <E>
  */
