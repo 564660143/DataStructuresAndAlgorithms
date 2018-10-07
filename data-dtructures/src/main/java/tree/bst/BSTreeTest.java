@@ -4,7 +4,7 @@ import org.junit.Test ;
 
 
 public class BSTreeTest {
-	
+	private Integer temp;
 	static int[] nums = {5, 3, 6, 8, 4, 2};
 	static BSTree<Integer> bsTree;
 	static{
@@ -49,6 +49,13 @@ public class BSTreeTest {
 			bsTree.remove(i);
 			bsTree.inOrder();
 		}
+	}
+	
+	/**
+	 * 测试二分搜索树删除
+	 */
+	@Test
+	public void test(){
 	}
 	
 }
