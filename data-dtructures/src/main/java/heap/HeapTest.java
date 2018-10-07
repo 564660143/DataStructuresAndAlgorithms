@@ -54,7 +54,7 @@ public class HeapTest {
 	private double testListCovertMapHeap(List<Integer> list, boolean isHeapify){
 		long startTime = System.currentTimeMillis();
 		if (isHeapify) {
-			MaxHeap<Integer>maxHeap = new MaxHeap<>(list);
+			new MaxHeap<>(list);
 		} else {
 			MaxHeap<Integer>maxHeap = new MaxHeap<>();
 			for (Integer integer : list) {
