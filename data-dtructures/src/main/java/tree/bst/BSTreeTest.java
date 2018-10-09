@@ -4,7 +4,6 @@ import org.junit.Test ;
 
 
 public class BSTreeTest {
-	private Integer temp;
 	static int[] nums = {5, 3, 6, 8, 4, 2};
 	static BSTree<Integer> bsTree;
 	static{
@@ -31,6 +30,8 @@ public class BSTreeTest {
 		// 前序遍历, 5->3->2->4->6->8
 		bsTree.preOrder();
 		System.out.println("-------------------------------------------------") ;
+		// 前序遍历非递归, 5->3->2->4->6->8
+		bsTree.preOrderNR();
 		// 中序遍历, 2->3->4->5->6->8
 		bsTree.inOrder();
 		System.out.println("-------------------------------------------------") ;
@@ -49,13 +50,6 @@ public class BSTreeTest {
 			bsTree.remove(i);
 			bsTree.inOrder();
 		}
-	}
-	
-	/**
-	 * 测试二分搜索树删除
-	 */
-	@Test
-	public void test(){
 	}
 	
 }

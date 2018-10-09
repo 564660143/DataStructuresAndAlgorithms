@@ -1,5 +1,9 @@
 package tree.bst ;
 
+import java.util.LinkedList ;
+import java.util.Queue ;
+import java.util.Stack ;
+
 /**
  * 递归实现二分搜索树
  * 这里设计的树是不存储重复元素的, 重复添加元素只保存一个
@@ -20,6 +24,10 @@ public class BSTree<E extends Comparable<E>> {
 	
 	public boolean isEmpty() {
 		return size == 0 ;
+	}
+	
+	public int getSize(){
+		return size;
 	}
 	
 	/**
@@ -114,6 +122,38 @@ public class BSTree<E extends Comparable<E>> {
 	}
 	
 	/**
+	 * 前序遍历的非递归方法, 深度优先
+	 * 这里使用栈进行辅助实现
+	 * 前序遍历是指,先访问当前节点, 然后再访问左右子节点
+	 */
+	public void preOrderNR() {
+		// 使用栈辅助实现前序遍历
+		Stack<Node> stack = new Stack<>();
+		/*
+		 * 前序遍历的过程就是先访问当前节点, 然后再访问左子树, 然后右子树
+		 * 所以使用栈实现时, 可以先将当前节点入栈, 当前节点出栈时, 
+		 * 分别将当前节点的右孩子, 左孩子压入栈
+		 */
+		// 首先将根节点压入栈
+		stack.push(root);
+		while (!stack.isEmpty()) {
+			Node cur = stack.pop();
+			// 前序遍历当前节点
+			System.out.println(cur.e) ;
+			// 由于栈是后入先出, 前序遍历是先左孩子, 再右孩子, 所以这里需要先将右孩子压入栈
+			if (cur.right != null) {
+				stack.push(cur.right);
+			}
+			
+			if (cur.left != null) {
+				stack.push(cur.left);
+			}
+			
+		}
+		
+	}
+	
+	/**
 	 * 中序遍历树, 深度优先
 	 */
 	public void inOrder() {
@@ -143,6 +183,29 @@ public class BSTree<E extends Comparable<E>> {
 	}
 	
 	/**
+	 * 
+	 * 中序遍历的非递归方法, 深度优先
+	 * 这里同样使用一个栈辅助实现
+	 * 中序遍历指的是访问当前元素的顺序放在访问左右子节点之间
+	 * 中序遍历的结果是有序的
+	 * @param node
+	 */
+//	public void inOrderNR() {
+//		Stack<Node> stack = new Stack<>();
+//		Node cur = root;
+//		
+//		
+//		
+//		// 1. 中序遍历访问左孩子
+//		inOrder(node.left) ;
+//		// 2. 中序遍历先访问当前节点
+//		System.out.println(node.e) ;
+//		// 3. 中序遍历访问右孩子
+//		inOrder(node.right) ;
+//		
+//	}
+	
+	/**
 	 * 后序遍历树, 深度优先
 	 */
 	public void postOrder() {
@@ -167,7 +230,44 @@ public class BSTree<E extends Comparable<E>> {
 		postOrder(node.right) ;
 		// 3. 后序遍历先访问当前节点
 		System.out.println(node.e) ;
-		
+	}
+	
+	/**
+	 * 层序遍历, 从左到右一层一层遍历
+	 * 借助队列实现
+	 */
+	public void levelOrder(){
+		// LinkedList实现了Queue接口
+		Queue<Node> queue = new LinkedList<>();
+		/*
+		 * 遍历过程:
+		 * 1. 首先根节点入队
+		 * 2. 每次出队时, 都将当前节点的左右孩子先后入队
+		 * 3. 如果队列为空的话, 则表示层序遍历结束
+		 *      5      
+         *    /   \    
+         *   3    6   
+         *  / \    \   
+         * 2  4     8
+		 * 针对上面的二分搜索树, 详细描述一下层序遍历步骤
+		 * 1. 5入队, 队列元素 : head->[5]<-tail
+		 * 2. 5出队, 5的左子树3, 6入队, 由于队列是先入先出(FIFO), 所以先左后右, 队列元素 : head->[3, 6]<-tail
+		 * 3. 3出队, 2, 4入队, 队列元素  : head->[6, 2, 4]<-tail
+		 * 4. 6出队, 左孩子为空,所以8入队, 队列元素  : head->[2, 4, 8]<-tail
+		 * 5. 2,4,8依次出队, 由于这三个节点都是叶子节点, 无子节点, 所以这三个节点出队后队列为空, 层序遍历完成
+		 * 6. 按照出队的顺序演示的遍历结果为 : 5 3 6 2 4 8
+		 */
+		 queue.add(root);
+		 
+		 while(!queue.isEmpty()){
+			 Node cur = queue.poll();
+			 if (cur.left != null) {
+				queue.add(cur.left);
+			}
+			 if (cur.right != null) {
+				queue.add(cur.right);
+			}
+		 }
 	}
 	
 	/**
@@ -370,12 +470,14 @@ public class BSTree<E extends Comparable<E>> {
 		return res;
 	}
 
-
-
-
+	/**
+	 * 二分搜索树节点类
+	 * @author 七夜雪
+	 *
+	 */
 	private class Node {
-		
 		public E	e ;
+		// 左右子树
 		public Node	left , right ;
 		
 		public Node(E e) {
