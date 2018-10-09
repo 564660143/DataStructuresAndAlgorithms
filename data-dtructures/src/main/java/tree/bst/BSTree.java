@@ -294,7 +294,7 @@ public class BSTree<E extends Comparable<E>> {
 	}
 	
 	/**
-	 * 查找树中最小元素
+	 * 查找树中最大元素
 	 * @return
 	 */
 	public E maximum(){
@@ -305,7 +305,7 @@ public class BSTree<E extends Comparable<E>> {
 	}
 	
 	/**
-	 * 查找以node为根节点的最小元素, 递归方法
+	 * 查找以node为根节点的最大元素, 递归方法
 	 * @param node
 	 * @return
 	 */
