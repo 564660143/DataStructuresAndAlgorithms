@@ -28,8 +28,6 @@ public class BubbleSort2 implements Sort {
 				break;
 			}
 		}
-		
-		
 	}
 	
 }
