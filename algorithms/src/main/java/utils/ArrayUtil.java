@@ -1,6 +1,7 @@
 package utils;
 
 import java.util.Random ;
+import javax.management.RuntimeErrorException ;
 import sort.Sort ;
 
 public class ArrayUtil {
@@ -99,6 +100,9 @@ public class ArrayUtil {
 		long startTime = System.currentTimeMillis();
 		sort.sort(arr);
 		long endTime = System.currentTimeMillis();
+		if (!isSorted(arr)) {
+			throw new RuntimeException("数组排序失败");
+		}
 		return (endTime - startTime) / 1000.0;
 	}
 	
