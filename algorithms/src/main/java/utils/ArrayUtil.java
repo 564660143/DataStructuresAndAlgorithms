@@ -1,7 +1,6 @@
 package utils;
 
 import java.util.Random ;
-import javax.management.RuntimeErrorException ;
 import sort.Sort ;
 
 public class ArrayUtil {
@@ -117,6 +116,24 @@ public class ArrayUtil {
 			copyArr[i] = arr[i];
 		}
 		return copyArr;
+	}
+	
+	/**
+	 * 对数组arr的[l, r]的区间进行插入排序
+	 * @param arr
+	 * @param l
+	 * @param r
+	 */
+	public static void insertSort(int[] arr, int l, int r){
+		for (int i = l; i <= r; i++) {
+			int temp = arr[i];
+			int insertIndex;
+			for (insertIndex = i; insertIndex > l && arr[insertIndex - 1] > temp ; insertIndex--) {
+				arr[insertIndex] = arr[insertIndex - 1];
+			}
+			// 循环结束, j的位置就是元素i应该插入的位置
+			arr[insertIndex] = temp;
+		}
 	}
 	
 }
