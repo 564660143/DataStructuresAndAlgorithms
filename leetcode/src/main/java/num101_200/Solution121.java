@@ -10,7 +10,9 @@ class Solution121 {
         if(length < 2){
             return 0;
         }
+        // 记录[0..i]区间的最大利润
         int maxProfit = 0;
+        // 记录[0..i]区间的最小价格
         int minPrice = prices[0];
         for(int i = 1; i < length; i++){
             minPrice = Math.min(minPrice, prices[i]);
