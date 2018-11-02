@@ -1,7 +1,6 @@
 package num501_600;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -31,7 +30,6 @@ class Solution566 {
             k++;
           }
         }
-        
         return newNums;
       } else {
         return nums;
