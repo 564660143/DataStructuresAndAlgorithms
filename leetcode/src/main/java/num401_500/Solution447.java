@@ -9,9 +9,9 @@ import java.util.Map;
 class Solution447 {
     public int numberOfBoomerangs(int[][] points) {
         int result = 0;
-        Map<Integer, Integer> map;
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < points.length; i++) {
-            map = new HashMap<>();
+
             for (int j = 0; j < points.length; j++) {
                 // 不考虑当前同样的点
                 if (i != j){
@@ -20,6 +20,7 @@ class Solution447 {
                 }
             }
             result += getCountByPoint(map);
+            map.clear();
         }
 
         return result;
