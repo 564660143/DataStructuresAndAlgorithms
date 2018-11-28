@@ -1,5 +1,7 @@
 package num1_100;
 
+import helper.ListNode;
+
 /**
  * 83. 删除排序链表中的重复元素
  *
@@ -21,10 +23,4 @@ class Solution83 {
         return head;
     }
 
-
-     class ListNode {
-         int val;
-         ListNode next;
-         ListNode(int x) { val = x; }
-    }
 }

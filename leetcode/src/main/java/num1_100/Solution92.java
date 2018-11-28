@@ -1,6 +1,8 @@
 package num1_100;
 
 
+import helper.ListNode;
+
 /**
  * 92. 反转链表 II
  */
@@ -35,12 +37,4 @@ class Solution92 {
         return dummyHead.next;
     }
 
-    /**
-     * 不加编译报错, LeetCode提交时, 这部分代码可以省略
-     */
-    static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
 }

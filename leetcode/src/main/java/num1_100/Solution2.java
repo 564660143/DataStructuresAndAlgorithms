@@ -1,5 +1,7 @@
 package num1_100;
 
+import helper.ListNode;
+
 /**
  * 2. 两数相加
  */
@@ -33,9 +35,4 @@ class Solution2 {
     }
 
 
-    class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
 }

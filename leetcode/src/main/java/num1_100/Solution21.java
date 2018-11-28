@@ -1,5 +1,7 @@
 package num1_100;
 
+import helper.ListNode;
+
 /**
  * 21. 合并两个有序链表
  */
@@ -30,9 +32,4 @@ class Solution21 {
         return dummyHead.next;
     }
 
-    class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
 }
