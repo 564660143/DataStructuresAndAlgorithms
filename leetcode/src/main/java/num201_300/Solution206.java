@@ -1,5 +1,7 @@
 package num201_300;
 
+import helper.ListNode;
+
 /**
  * 206. 反转链表
  */
@@ -17,14 +19,6 @@ class Solution206 {
         return pre;
     }
 
-    /**
-     * 不加编译报错, LeetCode提交时, 这部分代码可以省略
-     */
-    class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
 }
 
 

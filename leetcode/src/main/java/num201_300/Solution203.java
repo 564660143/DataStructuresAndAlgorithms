@@ -1,5 +1,7 @@
 package num201_300;
 
+import helper.ListNode;
+
 /**
  * 203. 移除链表元素
  */
@@ -20,10 +22,4 @@ class Solution203 {
         return dummyHead.next;
     }
 
-
-    class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
 }
