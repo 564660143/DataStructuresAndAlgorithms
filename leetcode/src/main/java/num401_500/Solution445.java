@@ -9,52 +9,49 @@ import java.util.Stack;
  */
 class Solution445 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        Stack<ListNode> stack1 = new Stack<>();
-        Stack<ListNode> stack2 = new Stack<>();
-        Stack<ListNode> result = new Stack<>();
-        // l1元素放入栈中
-        while (l1 != null){
-            stack1.push(l1);
-            l1 = l1.next;
-        }
-        // l2元素放入栈中
-        while (l2 != null){
-            stack2.push(l2);
-            l2 = l2.next;
-        }
-
-        // 进位
+        Stack<Integer> s1 = linkedListToStack(l1);
+        Stack<Integer> s2 = linkedListToStack(l2);
+        Stack<Integer> result = new Stack<>();
+        int num1, num2;
+        int sum = 0;
         int carry = 0;
-        int num1 = 0, num2 = 0;
-        int sum;
-        while ((!stack1.isEmpty()) || (!stack2.isEmpty())) {
-            if (stack1.isEmpty()){
+        while ((!s1.isEmpty()) || (!s2.isEmpty())){
+            if (!s1.isEmpty()){
+                num1 = s1.pop();
+            } else {
                 num1 = 0;
-            } else {
-                num1 = stack1.pop().val;
             }
-            if (stack2.isEmpty()){
-                num2 = 0;
+            if (!s2.isEmpty()){
+                num2 = s2.pop();
             } else {
-                num2 = stack2.pop().val;
+                num2 = 0;
             }
             sum = num1 + num2 + carry;
             carry = sum / 10;
-            result.push(new ListNode(sum % 10));
-        }
-
-        // 判断是否最后一次是否有进位
-        if(carry == 1){
-            result.push(new ListNode(1));
+            result.push(sum % 10);
         }
 
         ListNode dummyHead = new ListNode(0);
         ListNode cur = dummyHead;
-        while (!result.isEmpty()){
-            cur.next = result.pop();
+        // 处理最后的进位
+        if (carry == 1) {
+            result.push(carry);
+        }
+
+        while (!result.isEmpty()) {
+            cur.next = new ListNode(result.pop());
             cur = cur.next;
         }
 
         return dummyHead.next;
+    }
+
+    private Stack<Integer> linkedListToStack(ListNode head){
+        Stack<Integer> stack = new Stack();
+        while (head != null){
+            stack.push(head.val);
+            head = head.next;
+        }
+        return stack;
     }
 }
