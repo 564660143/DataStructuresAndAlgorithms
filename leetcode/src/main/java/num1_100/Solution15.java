@@ -19,15 +19,23 @@ class Solution15 {
                 while (l < r) {
                     if (nums[l] + nums[r] == sum) {
                         ls.add(Arrays.asList(nums[i], nums[l], nums[r]));
-                        while (l < r && nums[l] == nums[l + 1]) l++;
-                        while (l < r && nums[r] == nums[r - 1]) r--;
+                        while (l < r && nums[l] == nums[l + 1]) {
+                            l++;
+                        }
+                        while (l < r && nums[r] == nums[r - 1]) {
+                            r--;
+                        }
                         l++;
                         r--;
                     } else if (nums[l] + nums[r] < sum) {
-                        while (l < r && nums[l] == nums[l + 1]) l++;   // 跳过重复值
+                        while (l < r && nums[l] == nums[l + 1]) {
+                            l++;   // 跳过重复值
+                        }
                         l++;
                     } else {
-                        while (l < r && nums[r] == nums[r - 1]) r--;
+                        while (l < r && nums[r] == nums[r - 1]) {
+                            r--;
+                        }
                         r--;
                     }
                 }
