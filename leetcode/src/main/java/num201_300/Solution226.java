@@ -2,7 +2,10 @@ package num201_300;
 
 import helper.TreeNode;
 
-class Solution {
+/**
+ * 226. 翻转二叉树
+ */
+class Solution226 {
     public TreeNode invertTree(TreeNode root) {
         if (root == null) {
             return root;
