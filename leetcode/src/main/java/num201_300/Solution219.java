@@ -1,17 +1,21 @@
 package num201_300;
 
-//给定一个整数数组和一个整数 k，判断数组中是否存在两个不同的索引 i 和 j，
-//使得 nums [i] = nums [j]，并且 i 和 j 的差的绝对值最大为 k。
+/**
+ * 219. 存在重复元素 II
+ */
 class Solution219 {
   public boolean containsNearbyDuplicate(int[] nums, int k) {
-    for (int i = 0; i < nums.length; i++) {
-      for (int j = i + 1; j <= i + k && j < nums.length; j++) {
-        if (nums[i] == nums[j]) {
-          return true;
+    for (int i = 1; i < nums.length; i++) {
+      for (int j = i - 1; j >= 0; j--) {
+        if(nums[i]>nums[j]) {
+          break;
+        } else if (nums[i] == nums[j]) {
+          if((i-j)<=k) {
+            return true;
+          }
         }
       }
     }
     return false;
   }
-  
 }
