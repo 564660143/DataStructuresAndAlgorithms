@@ -29,7 +29,6 @@ class Solution46 {
             if (!used[i]) {
                 temp.add(nums[i]);
                 used[i] = true;
-                System.out.println(temp);
                 permute(nums, temp, used);
                 // 回溯
                 temp.remove(temp.size() - 1);
@@ -38,9 +37,4 @@ class Solution46 {
         }
 
     }
-
-    public static void main(String[] args) {
-        new Solution46().permute(new int[]{1, 2, 3});
-    }
-
 }
