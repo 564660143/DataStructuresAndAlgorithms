@@ -27,6 +27,7 @@ class Solution47 {
             if (used[i]) {
                 continue;
             }
+            // 剪枝
             if (i > 0 && nums[i - 1] == nums[i] && !used[i - 1]) {
                 continue;
             }
@@ -34,6 +35,7 @@ class Solution47 {
             list.add(nums[i]);
             dfs(nums, used, list, res);
             used[i] = false;
+            // 回溯
             list.remove(list.size() - 1);
         }
     }
