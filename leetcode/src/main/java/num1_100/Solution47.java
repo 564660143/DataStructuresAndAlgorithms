@@ -27,6 +27,7 @@ class Solution47 {
             if (used[i]) {
                 continue;
             }
+            // 重复判断
             if (i > 0 && nums[i - 1] == nums[i] && !used[i - 1]) {
                 continue;
             }
