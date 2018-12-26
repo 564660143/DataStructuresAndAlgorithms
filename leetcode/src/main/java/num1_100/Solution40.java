@@ -23,7 +23,7 @@ class Solution40 {
     private void findTarget(int[] candidates, int target, int index, List<Integer> temp) {
         if (target == 0) {
             result.add(new ArrayList<>(temp));
-//            System.out.println("get a result" + temp);
+            System.out.println("get a result" + temp);
             return;
         }
 
@@ -33,15 +33,15 @@ class Solution40 {
                 continue;
             }
             temp.add(candidates[i]);
-//            System.out.println("index :" + i +  "--use : " + candidates[i] + " --  temp : " + temp);
+            System.out.println("index :" + i +  "--use : " + candidates[i] + " --  temp : " + temp);
             findTarget(candidates, target - candidates[i], i + 1, temp);
             // 回溯
             temp.remove(temp.size() - 1);
         }
     }
 
-//    public static void main(String[] args) {
-//        new Solution40().combinationSum2(new int[]{10,1,2,7,6,1,5}, 8);
-//    }
+    public static void main(String[] args) {
+        new Solution40().combinationSum2(new int[]{10,1,2,7,6,1,5}, 8);
+    }
 
 }
