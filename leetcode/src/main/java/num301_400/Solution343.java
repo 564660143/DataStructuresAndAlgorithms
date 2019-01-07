@@ -3,6 +3,7 @@ package num301_400;
 /**
  *  343. 整数拆分
  *  拆出的3越多乘积越大, 剩余为4时拆成2 * 2时值最大, 所以4不需要拆分
+ *  参考 : https://blog.csdn.net/liyuanbhu/article/details/51198124
  */
 class Solution343 {
     public int integerBreak(int n) {
