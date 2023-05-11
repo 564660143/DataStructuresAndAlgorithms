@@ -5,6 +5,7 @@
     <artifactId>data-dtructures-and-algorithms</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
+
   <artifactId>leetcode</artifactId>
   <name>leetcode</name>
 </project>
