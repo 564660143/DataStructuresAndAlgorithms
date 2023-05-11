@@ -1,4 +1,4 @@
-package num1_100 ;
+package num1_100;
 
 /**
  * 80. 删除排序数组中的重复项 II

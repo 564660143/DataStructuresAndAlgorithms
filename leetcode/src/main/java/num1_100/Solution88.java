@@ -1,4 +1,4 @@
-package num1_100 ;
+package num1_100;
 
 /**
  * 88.合并两个有序数组

@@ -5,7 +5,7 @@ package num1_100;
  * @author 七夜雪
  *
  */
-class Solution75_1 {
+class Solution75 {
     /**
      * 双指针
      */
